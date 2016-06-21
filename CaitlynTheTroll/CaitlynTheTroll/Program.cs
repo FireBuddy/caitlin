@@ -18,6 +18,7 @@ namespace CaitlynTheTroll
         public static AIHeroClient Target = null;
         public static int QOff = 0, WOff = 0, EOff = 0, ROff = 0;
         public static Spell.Skillshot Q;
+        public static Spell.Skillshot Q2;
         public static Spell.Skillshot W;
         public static Spell.Skillshot E;
         public static Spell.Targeted R;
