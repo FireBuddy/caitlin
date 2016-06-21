@@ -50,7 +50,7 @@ namespace CaitlynTheTroll
             Q = new Spell.Skillshot(SpellSlot.Q, 1240, SkillShotType.Linear, 250, 2000, 60);
             Q2 = new Spell.Skillshot(SpellSlot.Q, 1240, SkillShotType.Linear, 250, 2000, 60);
             {
-                Q2.AllowedCollisionCount <= 1;
+                Q2.AllowedCollisionCount < 2;
             }
             W = new Spell.Skillshot(SpellSlot.W, 820, SkillShotType.Circular, 500, int.MaxValue, 80);
             E = new Spell.Skillshot(SpellSlot.E, 800, SkillShotType.Linear, 250, 1600, 80);
