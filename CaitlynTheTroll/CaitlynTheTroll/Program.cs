@@ -110,14 +110,18 @@ namespace CaitlynTheTroll
         
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
         {
-            if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit))
+            if (Sender == null)
             {
                return;
             }
             var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
-            if (!Sender.IsDashing() && Sender == target && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) && !Sender.IsDashing() && Sender == target && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
              Q.Cast(Sender.ServerPosition);
+            } 
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && !Sender.IsDashing() && Sender == target && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(E.Range) && E.IsReady() && Sender.IsEnemy)
+            {
+             E.Cast(Sender.ServerPosition);
             } 
         }
 
