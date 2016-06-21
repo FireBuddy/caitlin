@@ -114,7 +114,7 @@ namespace CaitlynTheTroll
             {
                return;
             }
-            if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
+            if (!Sender.IsDashing() && Sender == Target && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
              Q.Cast(Sender.ServerPosition);
             } 
