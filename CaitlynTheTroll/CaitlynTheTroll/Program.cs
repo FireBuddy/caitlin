@@ -122,7 +122,7 @@ namespace CaitlynTheTroll
             var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
             if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) && !Sender.IsDashing() && Sender == target && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
-             Q.Cast(Sender.ServerPosition);
+             Q2.Cast(Sender.ServerPosition);
             } 
             var target3 = TargetSelector.GetTarget(E.Range, DamageType.Physical);
             if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && !Sender.IsDashing() && Sender == target3 && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(E.Range) && E.IsReady() && Sender.IsEnemy)
