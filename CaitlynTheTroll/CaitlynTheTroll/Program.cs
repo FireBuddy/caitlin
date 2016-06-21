@@ -119,9 +119,9 @@ namespace CaitlynTheTroll
             {
              Q.Cast(Sender.ServerPosition);
             } 
-            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && !Sender.IsDashing() && Sender == target && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(E.Range) && E.IsReady() && Sender.IsEnemy)
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && !Sender.IsDashing() && Sender == target && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(W.Range) && W.IsReady() && Sender.IsEnemy)
             {
-             E.Cast(Sender.ServerPosition);
+             W.Cast(Sender.ServerPosition);
             } 
         }
 
