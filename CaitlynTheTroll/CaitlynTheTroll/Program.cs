@@ -62,6 +62,7 @@ namespace CaitlynTheTroll
             Obj_AI_Base.OnBuffGain += OnBuffGain;
             Drawing.OnDraw += GameOnDraw;
             DamageIndicator.Initialize(SpellDamage.GetTotalDamage);
+            Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
         }
 
         private static void GameOnDraw(EventArgs args)
@@ -107,14 +108,17 @@ namespace CaitlynTheTroll
             }
         }
         
-        Obj_AI_Base.OnBasicAttack += delegate (Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit))
             {
-                if (sender.IsValidTarget(1250) && Q.IsReady && sender.IsEnemy && sender.Type == GameObjectType.AIHeroClient)
-                {
-                 Q.Cast(sender);
-                }
-            }    
-        };
+               return;
+            }
+            if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
+            {
+             
+            } 
+        }
 
 
         private static void AntiGapCloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
