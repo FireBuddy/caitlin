@@ -106,6 +106,15 @@ namespace CaitlynTheTroll
                 }
             }
         }
+        
+        Obj_AI_Base.OnBasicAttack += delegate (Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+            {
+                if (sender.IsValidTarget(1250) && Q.IsReady && sender.IsEnemy && sender.Type == GameObjectType.AIHeroClient)
+                {
+                 Q.Cast(sender);
+                }
+            }    
+        };
 
 
         private static void AntiGapCloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
